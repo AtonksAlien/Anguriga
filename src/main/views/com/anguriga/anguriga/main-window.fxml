@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: E9ECFE;" styleClass="sfondo" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: E9ECFE;" styleClass="sfondo" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox prefHeight="600.0" prefWidth="900.0">
          <children>
@@ -79,6 +79,34 @@
                      <HBox.margin>
                         <Insets left="50.0" />
                      </HBox.margin>
+                     <children>
+                        <ImageView fitHeight="215.0" fitWidth="224.0" pickOnBounds="true" preserveRatio="true" rotate="5.0">
+                           <image>
+                              <Image url="@../../../../resources/anguria.png" />
+                           </image>
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </ImageView>
+                        <VBox prefHeight="240.0" prefWidth="126.0">
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="190.0" text="AngurigaBank">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="190.0" text="----9993">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="27.0" prefHeight="17.0" prefWidth="190.0" text="Pinco Pallino" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
                   </StackPane>
                </children>
                <VBox.margin>
