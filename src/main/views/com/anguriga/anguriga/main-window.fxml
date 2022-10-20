@@ -7,12 +7,14 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: E9ECFE;" styleClass="sfondo" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: E9ECFE;" styleClass="sfondo" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox prefHeight="600.0" prefWidth="900.0">
          <children>
@@ -23,7 +25,7 @@
                <children>
                   <ImageView fitHeight="95.0" fitWidth="544.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../resources/logo.png" />
+                        <Image url="file:src/main/resources/logo.png" />
                      </image>
                   </ImageView>
                   <HBox alignment="CENTER_RIGHT" prefHeight="112.0" prefWidth="489.0">
@@ -32,10 +34,13 @@
                            <font>
                               <Font size="15.0" />
                            </font>
+                           <HBox.margin>
+                              <Insets bottom="15.0" />
+                           </HBox.margin>
                         </Label>
-                        <ImageView fitHeight="132.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="73.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../resources/pfp.png" />
+                              <Image url="file:src/main/resources/pfp.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -49,7 +54,7 @@
                         <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="480.0" text="VERSAMENTO">
                            <styleClass>
                               <String fx:value="pulsante" />
-                              <String fx:value="button-verde" />
+                              <String fx:value="bg-green" />
                            </styleClass>
                            <VBox.margin>
                               <Insets bottom="15.0" top="15.0" />
@@ -58,7 +63,7 @@
                         <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="480.0" text="PRELIEVO">
                            <styleClass>
                               <String fx:value="pulsante" />
-                              <String fx:value="button-verde" />
+                              <String fx:value="bg-green" />
                            </styleClass>
                            <VBox.margin>
                               <Insets bottom="15.0" top="15.0" />
@@ -66,7 +71,7 @@
                         </Button>
                         <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="370.0" text="BOLLETTINI">
                            <styleClass>
-                              <String fx:value="button-rosso" />
+                              <String fx:value="bg-red" />
                               <String fx:value="pulsante" />
                            </styleClass>
                            <VBox.margin>
@@ -82,7 +87,7 @@
                      <children>
                         <ImageView fitHeight="215.0" fitWidth="224.0" pickOnBounds="true" preserveRatio="true" rotate="5.0">
                            <image>
-                              <Image url="@../../../../resources/anguria.png" />
+                              <Image url="file:src/main/resources/anguria.png" />
                            </image>
                            <StackPane.margin>
                               <Insets />
@@ -90,17 +95,25 @@
                         </ImageView>
                         <VBox prefHeight="240.0" prefWidth="126.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="190.0" text="AngurigaBank">
+                              <Label prefHeight="17.0" prefWidth="190.0" styleClass="title-card" text="AngurigaBank">
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="190.0" text="----9993">
+                              <Label layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="190.0" styleClass="number-card" text="- - - - 9993">
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label layoutX="10.0" layoutY="27.0" prefHeight="17.0" prefWidth="190.0" text="Pinco Pallino" />
+                              <Label layoutX="10.0" layoutY="27.0" prefHeight="17.0" prefWidth="190.0" styleClass="name-card" text="Pinco Pallino" />
+                              <Label prefHeight="48.0" prefWidth="158.0" styleClass="value-card" text="\$69.420,00">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets top="70.0" />
+                                 </VBox.margin>
+                              </Label>
                            </children>
                         </VBox>
                      </children>
@@ -110,12 +123,170 @@
                   </StackPane>
                </children>
                <VBox.margin>
-                  <Insets top="20.0" />
+                  <Insets bottom="20.0" top="20.0" />
                </VBox.margin>
                <padding>
                   <Insets left="25.0" right="25.0" />
                </padding>
             </HBox>
+            <VBox prefHeight="249.0" prefWidth="900.0" styleClass="transazioni-bg">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="35.0" prefWidth="900.0" styleClass="transazioni-label" text="Transazioni">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <FlowPane alignment="TOP_CENTER" hgap="80.0" prefHeight="200.0" prefWidth="290.0" vgap="20.0">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <HBox maxHeight="55.0" prefHeight="55.0" prefWidth="362.0" styleClass="notifica">
+                           <children>
+                              <Pane prefHeight="54.0" prefWidth="84.0" style="-fx-background-color: #4255ff;" styleClass="notifica-img">
+                                 <children>
+                                    <ImageView fitHeight="40.0" fitWidth="47.0" layoutX="20.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" styleClass="notifica-img">
+                                       <image>
+                                          <Image url="file:src/main/resources/cuore.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                 </padding>
+                              </Pane>
+                              <VBox prefHeight="39.0" prefWidth="192.0">
+                                 <children>
+                                    <Label prefHeight="34.0" prefWidth="150.0" styleClass="notifica-title" text="Medico" />
+                                    <Label prefHeight="26.0" prefWidth="150.0" styleClass="notifica-data" text="29 Gennaio 2012" />
+                                 </children>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </VBox>
+                              <Label alignment="CENTER" prefHeight="66.0" prefWidth="106.0" text="-$29,00">
+                                 <styleClass>
+                                    <String fx:value="notifica-price" />
+                                    <String fx:value="bg-red" />
+                                 </styleClass>
+                              </Label>
+                           </children>
+                           <FlowPane.margin>
+                              <Insets />
+                           </FlowPane.margin>
+                        </HBox>
+                        <HBox maxHeight="55.0" prefHeight="55.0" prefWidth="362.0" styleClass="notifica">
+                           <children>
+                              <Pane prefHeight="54.0" prefWidth="84.0" style="-fx-background-color: #4255ff;" styleClass="notifica-img">
+                                 <children>
+                                    <ImageView fitHeight="40.0" fitWidth="47.0" layoutX="20.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" styleClass="notifica-img">
+                                       <image>
+                                          <Image url="file:src/main/resources/cuore.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                 </padding>
+                              </Pane>
+                              <VBox prefHeight="39.0" prefWidth="192.0">
+                                 <children>
+                                    <Label prefHeight="34.0" prefWidth="150.0" styleClass="notifica-title" text="Medico" />
+                                    <Label prefHeight="26.0" prefWidth="150.0" styleClass="notifica-data" text="29 Gennaio 2012" />
+                                 </children>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </VBox>
+                              <Label alignment="CENTER" prefHeight="66.0" prefWidth="106.0" text="-$29,00">
+                                 <styleClass>
+                                    <String fx:value="notifica-price" />
+                                    <String fx:value="bg-red" />
+                                 </styleClass>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox maxHeight="55.0" prefHeight="55.0" prefWidth="362.0" styleClass="notifica">
+                           <children>
+                              <Pane prefHeight="54.0" prefWidth="84.0" style="-fx-background-color: #4255ff;" styleClass="notifica-img">
+                                 <children>
+                                    <ImageView fitHeight="40.0" fitWidth="47.0" layoutX="20.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" styleClass="notifica-img">
+                                       <image>
+                                          <Image url="file:src/main/resources/cuore.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                 </padding>
+                              </Pane>
+                              <VBox prefHeight="39.0" prefWidth="192.0">
+                                 <children>
+                                    <Label prefHeight="34.0" prefWidth="150.0" styleClass="notifica-title" text="Medico" />
+                                    <Label prefHeight="26.0" prefWidth="150.0" styleClass="notifica-data" text="29 Gennaio 2012" />
+                                 </children>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </VBox>
+                              <Label alignment="CENTER" prefHeight="66.0" prefWidth="106.0" text="-$29,00">
+                                 <styleClass>
+                                    <String fx:value="notifica-price" />
+                                    <String fx:value="bg-red" />
+                                 </styleClass>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox maxHeight="55.0" prefHeight="55.0" prefWidth="362.0" styleClass="notifica">
+                           <children>
+                              <Pane prefHeight="54.0" prefWidth="84.0" style="-fx-background-color: #4255ff;" styleClass="notifica-img">
+                                 <children>
+                                    <ImageView fitHeight="40.0" fitWidth="47.0" layoutX="20.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" styleClass="notifica-img">
+                                       <image>
+                                          <Image url="file:src/main/resources/cuore.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                 </padding>
+                              </Pane>
+                              <VBox prefHeight="39.0" prefWidth="192.0">
+                                 <children>
+                                    <Label prefHeight="34.0" prefWidth="150.0" styleClass="notifica-title" text="Medico" />
+                                    <Label prefHeight="26.0" prefWidth="150.0" styleClass="notifica-data" text="29 Gennaio 2012" />
+                                 </children>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </VBox>
+                              <Label alignment="CENTER" prefHeight="66.0" prefWidth="106.0" text="-$29,00">
+                                 <styleClass>
+                                    <String fx:value="notifica-price" />
+                                    <String fx:value="bg-red" />
+                                 </styleClass>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </FlowPane>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </VBox>
          </children>
       </VBox>
    </children>

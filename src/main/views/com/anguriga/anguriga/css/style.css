@@ -17,14 +17,90 @@
     -fx-text-fill: "#fff";
     -fx-min-height: 50px;
 }
-.button-rosso{
-    -fx-background-color: "#D22A2A";
-}
-.button-verde{
-    -fx-background-color: "#11872B";
-}
 
 .carta{
     -fx-background-color: linear-gradient(from 400px 400px to 25px 25px, #11872B, #D22A2A);
     -fx-background-radius: 30px 30px 30px 30px;
 }
+
+.title-card{
+    -fx-font-family: "Arial", "sans-serif";
+    -fx-font-size: 25px;
+    -fx-font-weight: 700;
+    -fx-text-fill: "#fff";
+}
+
+.number-card{
+    -fx-font-family: "Arial", "sans-serif";
+    -fx-font-size: 20px;
+    -fx-font-weight: 700;
+    -fx-text-fill: "#fff";
+}
+
+.name-card{
+    -fx-font-family: "Arial", "sans-serif";
+    -fx-font-size: 18px;
+    -fx-font-weight: 700;
+    -fx-text-fill: "#fff";
+}
+
+.value-card{
+    -fx-font-family: "Arial", "sans-serif";
+    -fx-font-size: 30px;
+    -fx-font-weight: 900;
+    -fx-text-fill: "#fff";
+}
+
+.transazioni-bg{
+    -fx-background-color: #fff;
+    -fx-background-radius: 30px 30px 0px 0px;
+}
+
+.transazioni-label{
+    -fx-font-family: "Arial", "sans-serif";
+    -fx-font-size: 20px;
+    -fx-font-weight: 900;
+    -fx-text-fill: "#000";
+}
+
+.notifica-img{
+    -fx-background-radius: 30px 30px 30px 30px;
+}
+
+.notifica-title{
+    -fx-font-family: "Arial", "sans-serif";
+    -fx-font-size: 20px;
+    -fx-font-weight: 700;
+    -fx-text-fill: "#000";
+}
+
+.notifica-data{
+    -fx-font-family: "Arial", "sans-serif";
+    -fx-font-size: 15px;
+    -fx-font-weight: 500;
+    -fx-text-fill: "#6F6F6F";
+}
+
+.notifica-price{
+    -fx-font-family: "Arial", "sans-serif";
+    -fx-font-size: 20px;
+    -fx-font-weight: 700;
+    -fx-text-fill: "#fff";
+    -fx-background-radius: 25px;
+}
+.bg-red{
+    -fx-background-color: linear-gradient(to top right, #A92020, #D22A2A);
+}
+.bg-green{
+    -fx-background-color: linear-gradient(to top right, #42D22A, #20A926);
+}
+
+.notifica{
+    -fx-background-radius: 25px;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.3), 8, 0.5, 0.0, 4);
+    -fx-background-color: #fff;
+    -fx-border-color: #bdbdbd;
+    -fx-border-radius: 25px;
+}
+
+
