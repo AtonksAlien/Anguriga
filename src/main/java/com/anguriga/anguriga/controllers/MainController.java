@@ -1,14 +1,18 @@
 package com.anguriga.anguriga.controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 
 public class MainController {
     @FXML
-    private Label welcomeText;
-
+    protected void versamento() {
+        System.out.println("Versamento");
+    }
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    protected void prelievo() {
+        System.out.println("prelievo");
+    }
+    @FXML
+    protected void bollettini() {
+        System.out.println("bollettini");
     }
 }
