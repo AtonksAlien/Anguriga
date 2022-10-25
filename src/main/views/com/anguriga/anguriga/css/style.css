@@ -16,6 +16,7 @@
     -fx-font-weight: 700;
     -fx-text-fill: "#fff";
     -fx-min-height: 50px;
+    -fx-cursor: hand;
 }
 
 .carta{
