@@ -3,6 +3,7 @@ package com.anguriga.anguriga;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -15,6 +16,7 @@ public class Main extends Application {
         stage.setTitle("Homepage");
         stage.setResizable(false);
         stage.setScene(scene);
+        stage.getIcons().add(new Image("file:src/main/resources/icon.png"));
         stage.show();
     }
 
