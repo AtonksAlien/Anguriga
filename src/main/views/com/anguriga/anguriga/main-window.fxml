@@ -23,7 +23,7 @@
                   <Insets left="20.0" right="20.0" top="20.0" />
                </padding>
                <children>
-                  <ImageView fitHeight="95.0" fitWidth="544.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="95.0" fitWidth="544.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#newATM">
                      <image>
                         <Image url="file:src/main/resources/logo.png" />
                      </image>
