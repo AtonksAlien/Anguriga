@@ -106,7 +106,7 @@
                                  </VBox.margin>
                               </Label>
                               <Label layoutX="10.0" layoutY="27.0" prefHeight="17.0" prefWidth="190.0" styleClass="name-card" text="Pinco Pallino" />
-                              <Label prefHeight="48.0" prefWidth="158.0" styleClass="value-card" text="\$69.420,00">
+                              <Label prefHeight="48.0" prefWidth="158.0" styleClass="value-card" text="\$69.420,00" fx:id="saldo">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
