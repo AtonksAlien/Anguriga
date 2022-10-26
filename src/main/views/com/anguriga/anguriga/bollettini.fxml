@@ -308,7 +308,7 @@
                    </FlowPane>
                </children>
             </VBox>
-            <Button alignment="CENTER" layoutX="825.0" layoutY="20.0" maxHeight="44.0" maxWidth="50.0" minHeight="44.0" minWidth="50.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="50.0" styleClass="exit" text="X" textFill="WHITE">
+            <Button alignment="CENTER" layoutX="825.0" layoutY="20.0" maxHeight="45.0" maxWidth="50.0" minHeight="45.0" minWidth="50.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="50.0" styleClass="exit" text="X" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="11.0" />
                </font>
