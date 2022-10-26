@@ -21,6 +21,6 @@
             <Button alignment="CENTER" minHeight="44.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" styleClass="pulsante" text="VERSA" />
          </children>
       </VBox>
-      <Button alignment="CENTER" layoutX="560.0" layoutY="30.0" minHeight="44.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="X" text="X" />
+      <Button alignment="CENTER" layoutX="560.0" layoutY="30.0" minHeight="44.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="X" text="X" onMouseClicked="#closeWindow" />
    </children>
 </AnchorPane>
