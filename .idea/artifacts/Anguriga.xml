@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Anguriga">
+    <output-path>$PROJECT_DIR$/out/artifacts/Anguriga</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="com.anguriga.anguriga.Main" />
+        <option name="description" value="Anguriga - the new watermelon&#13;&#10;L'unica banca che ha soldi infiniti" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="Anguriga" />
+        <option name="vendor" value="Jonny-Alien-Landri" />
+        <option name="version" value="0.1" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="Anguriga.jar">
+        <element id="module-output" name="Anguriga" />
+      </element>
+    </root>
+  </artifact>
+</component>
