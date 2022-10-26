@@ -242,7 +242,7 @@
                                  <children>
                                     <ImageView fitHeight="40.0" fitWidth="47.0" layoutX="20.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" styleClass="notifica-img">
                                        <image>
-                                          <Image url="file:src/main/resources/cuore.png" />
+                                          <Image url="file:src/main/resources/cuore.png"/>
                                        </image>
                                     </ImageView>
                                  </children>
@@ -308,7 +308,7 @@
                    </FlowPane>
                </children>
             </VBox>
-            <Button alignment="CENTER" layoutX="825.0" layoutY="20.0" maxHeight="45.0" maxWidth="50.0" minHeight="45.0" minWidth="50.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="50.0" styleClass="exit" text="X" textFill="WHITE">
+            <Button alignment="CENTER" layoutX="825.0" layoutY="20.0" maxHeight="45.0" maxWidth="50.0" minHeight="45.0" minWidth="50.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="50.0" styleClass="exit" text="X" textFill="WHITE" fx:id="closeIcon" onMouseClicked="#closeWindow">
                <font>
                   <Font name="System Bold" size="11.0" />
                </font>
