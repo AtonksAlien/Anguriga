@@ -1,0 +1,43 @@
+.title{
+    -fx-font-family: "Arial", "sans-serif";
+    -fx-font-size: 40px;
+    -fx-font-weight: 900;
+    -fx-text-fill: "#000";
+}
+
+.bg{
+    -fx-background-color: #E9ECFE;
+}
+
+.modale{
+    -fx-background-color: #fff;
+    -fx-background-radius: 30px 30px 30px 30px;
+}
+
+.pulsante{
+    -fx-background-radius: 10px 10px 10px 10px;
+    -fx-font-family: "Arial", "sans-serif";
+    -fx-font-size: 23px;
+    -fx-font-weight: 700;
+    -fx-text-fill: "#fff";
+    -fx-min-height: 40px;
+    -fx-cursor: hand;
+    -fx-background-color: linear-gradient(to top right, #42D22A, #20A926);
+}
+
+.euro{
+    -fx-font-family: "Arial", "sans-serif";
+    -fx-font-size: 20px;
+    -fx-font-weight: 900;
+    -fx-text-fill: "#000";
+}
+
+.input{
+    -fx-background-color: #E6E6E6;
+    -fx-background-radius: 10px 10px 10px 10px;
+    -fx-font-family: "Arial", "sans-serif";
+    -fx-font-size: 15px;
+    -fx-font-weight: 900;
+    -fx-text-fill: "#000";
+    -fx-min-height: 40px;
+}

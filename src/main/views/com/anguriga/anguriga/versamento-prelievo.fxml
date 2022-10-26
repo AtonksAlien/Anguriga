@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="640.0" styleClass="bg" stylesheets="@css/style-versamento-prelievo.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.anguriga.anguriga.controllers.PV_Controller">
+   <children>
+      <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="300.0" prefWidth="620.0" styleClass="modale">
+         <children>
+            <Label alignment="CENTER" prefHeight="47.0" prefWidth="394.0" styleClass="title" text="VERSAMENTO" fx:id="titolo"/>
+            <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="349.0" spacing="10.0">
+               <children>
+                  <TextField prefHeight="26.0" prefWidth="255.0" promptText="Inserire la somma da versare" styleClass="input" />
+                  <Label alignment="CENTER" styleClass="euro" text="€" />
+               </children>
+            </HBox>
+            <Button alignment="CENTER" minHeight="44.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" styleClass="pulsante" text="VERSA" />
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>
