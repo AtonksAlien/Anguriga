@@ -1,11 +1,16 @@
 package com.anguriga.anguriga.controllers;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class PV_Controller implements Initializable {
+public class PV_Controller {
+    private final String[][] dbTesti = new String[][]{
+            new String[]{"Versamento", "Inserisci la somma da versare", "VERSA"},
+            new String[]{"Prelievo", "Inserisci la somma da prelevare", "PRELEVA"},
+    };
+    private String[] testi;
+
     @FXML
     protected Label titolo;
 
@@ -14,9 +19,17 @@ public class PV_Controller implements Initializable {
         ((Stage) titolo.getScene().getWindow()).close();
     }
 
-    @Override
-    public void initialize(java.net.URL location, java.util.ResourceBundle resources) {
-        System.out.println("PV_Controller.initialize");
+    @FXML
+    public void initialize() {
+        titolo.setText(testi[0]);
+    }
+
+    public PV_Controller(String titolo){
+        if(titolo.equalsIgnoreCase("versamento")) {
+            testi = dbTesti[0];
+        }else if(titolo.equalsIgnoreCase("prelievo")){
+            testi = dbTesti[1];
+        }
     }
 }
 
