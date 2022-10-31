@@ -27,17 +27,17 @@ public class MainController {
     @FXML
     protected void versamento(Event e) {
         Stage currentStage = (Stage)((Node) e.getSource()).getScene().getWindow();
-        Main.startModal(currentStage, "versamento", new int[]{640, 320}, new int[]{0,0}, true);
+        Main.startModal(currentStage, "versamento", new int[]{640, 320}, new int[]{0,0}, true, new PV_Controller("versamento"));
     }
     @FXML
     protected void prelievo(Event e) {
         Stage currentStage = (Stage)((Node) e.getSource()).getScene().getWindow();
-        Main.startModal(currentStage, "prelievo", new int[]{640, 320}, new int[]{0,0}, true);
+        Main.startModal(currentStage, "prelievo", new int[]{640, 320}, new int[]{0,0}, true, new PV_Controller("prelievo"));
     }
     @FXML
     protected void bollettini(Event e) {
         Stage currentStage = (Stage)((Node) e.getSource()).getScene().getWindow();
-        Main.startModal(currentStage, "bollettini", new int[]{900, 470}, new int[]{0,75}, false);
+        Main.startModal(currentStage, "bollettini", new int[]{900, 470}, new int[]{0,75}, false, null);
 
     }
 

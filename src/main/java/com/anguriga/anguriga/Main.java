@@ -1,5 +1,6 @@
 package com.anguriga.anguriga;
 
+import com.anguriga.anguriga.controllers.BorderlessModal;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -29,10 +30,16 @@ public class Main extends Application {
         stage.show();
     }
 
-    public static void startModal(Stage currentStage, String type, int[] size, int[] padding, boolean draggable) {
+    public static void startModal(Stage currentStage, String type, int[] size, int[] padding, boolean draggable, BorderlessModal controller) {
         String fxml = type.equals("versamento") || type.equals("prelievo") ? "versamento-prelievo.fxml" : "bollettini.fxml";
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml));
         try{
+            //Carica controller
+            if(controller != null){
+                fxmlLoader.setClassLoader(Main.class.getClassLoader());
+                fxmlLoader.setController(controller);
+            }
+
             Scene scene = new Scene(fxmlLoader.load(), size[0], size[1]);
             Stage stage = new Stage();
             stage.setTitle(type.equals("versamento") ? "Versamento" : "Prelievo");
