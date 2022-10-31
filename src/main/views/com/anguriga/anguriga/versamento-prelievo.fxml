@@ -14,11 +14,11 @@
             <Label fx:id="titolo" alignment="CENTER" prefHeight="47.0" prefWidth="394.0" styleClass="title" text="VERSAMENTO" />
             <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="349.0" spacing="10.0">
                <children>
-                  <TextField prefHeight="26.0" prefWidth="255.0" promptText="Inserire la somma da versare" styleClass="input" />
+                  <TextField prefHeight="26.0" prefWidth="255.0" promptText="Inserire la somma da versare" styleClass="input" fx:id="importo"/>
                   <Label alignment="CENTER" styleClass="euro" text="€" />
                </children>
             </HBox>
-            <Button alignment="CENTER" minHeight="44.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" styleClass="pulsante" text="VERSA" />
+            <Button alignment="CENTER" minHeight="44.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" styleClass="pulsante" text="VERSA" fx:id="button"/>
          </children>
       </VBox>
       <Button alignment="CENTER" layoutX="560.0" layoutY="30.0" minHeight="44.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="X" text="X" onMouseClicked="#closeWindow" />
