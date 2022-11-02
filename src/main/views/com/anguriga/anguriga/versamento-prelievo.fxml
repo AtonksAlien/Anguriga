@@ -18,7 +18,7 @@
                   <Label alignment="CENTER" styleClass="euro" text="€" />
                </children>
             </HBox>
-            <Button alignment="CENTER" minHeight="44.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" styleClass="pulsante" text="VERSA" fx:id="button"/>
+            <Button alignment="CENTER" minHeight="44.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="280.0" styleClass="pulsante" text="VERSA" fx:id="button" onMouseClicked="#prelevaVersa"/>
          </children>
       </VBox>
       <Button alignment="CENTER" layoutX="560.0" layoutY="30.0" minHeight="44.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="X" text="X" onMouseClicked="#closeWindow" />
