@@ -34,8 +34,7 @@ public class MainController {
 
     @FXML
     public void initialize() {
-        Thread reader = new Thread(new SaldoReader(conto, saldo));
-        reader.setName("SaldoReader");
+        Thread reader = new Thread(new SaldoReader(conto, saldo), "SaldoReader");
         reader.start();
 
         cardNumber.setText(conto.getCardNumber());

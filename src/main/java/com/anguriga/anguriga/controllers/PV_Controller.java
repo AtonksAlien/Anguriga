@@ -68,8 +68,7 @@ public class PV_Controller implements BorderlessModal{
     protected void prelevaVersa(){
         //TODO: Controlli input
         double importo = 10;
-        Thread saldoUpdater = new Thread(new SaldoUpdater(conto, tipo, importo));
-        saldoUpdater.setName("SaldoUpdater");
+        Thread saldoUpdater = new Thread(new SaldoUpdater(conto, tipo, importo), "SaldoUpdater");
         saldoUpdater.start();
     }
 
