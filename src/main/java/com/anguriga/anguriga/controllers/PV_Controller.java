@@ -1,5 +1,6 @@
 package com.anguriga.anguriga.controllers;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -26,6 +27,7 @@ public class PV_Controller implements BorderlessModal{
         titolo.setText(testi[0]);
         importo.setPromptText(testi[1]);
         button.setText(testi[2]);
+        Platform.runLater( () -> button.requestFocus() );
     }
 
     public PV_Controller(String titolo){
