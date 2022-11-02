@@ -2,6 +2,7 @@ package com.anguriga.anguriga.controllers;
 
 import com.anguriga.anguriga.Main;
 import com.anguriga.anguriga.classes.BankAccount;
+import com.anguriga.anguriga.classes.SaldoReader;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -33,7 +34,10 @@ public class MainController {
 
     @FXML
     public void initialize() {
-        saldo.setText(conto.getSaldo() + " €");
+        Thread reader = new Thread(new SaldoReader(conto, saldo));
+        reader.setName("SaldoReader");
+        reader.start();
+
         cardNumber.setText(conto.getCardNumber());
         nameCard.setText(conto.getNome() + " " + conto.getCognome());
     }
@@ -41,12 +45,12 @@ public class MainController {
     @FXML
     protected void versamento(Event e) {
         Stage currentStage = (Stage)((Node) e.getSource()).getScene().getWindow();
-        Main.startModal(currentStage, "versamento", new int[]{640, 320}, new int[]{0,0}, true, new PV_Controller("versamento"));
+        Main.startModal(currentStage, "versamento", new int[]{640, 320}, new int[]{0,0}, true, new PV_Controller(conto, "versamento"));
     }
     @FXML
     protected void prelievo(Event e) {
         Stage currentStage = (Stage)((Node) e.getSource()).getScene().getWindow();
-        Main.startModal(currentStage, "prelievo", new int[]{640, 320}, new int[]{0,0}, true, new PV_Controller("prelievo"));
+        Main.startModal(currentStage, "prelievo", new int[]{640, 320}, new int[]{0,0}, true, new PV_Controller(conto, "prelievo"));
     }
     @FXML
     protected void bollettini(Event e) {
