@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: E9ECFE;" styleClass="sfondo" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.anguriga.anguriga.controllers.MainController" >
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: E9ECFE;" styleClass="sfondo" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"  >
    <children>
       <VBox prefHeight="600.0" prefWidth="900.0">
          <children>
@@ -100,13 +100,13 @@
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="190.0" styleClass="number-card" text="- - - - 9993">
+                              <Label layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="190.0" styleClass="number-card" text="- - - - 0000" fx:id="cardNumber">
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label layoutX="10.0" layoutY="27.0" prefHeight="17.0" prefWidth="190.0" styleClass="name-card" text="Pinco Pallino" />
-                              <Label prefHeight="48.0" prefWidth="158.0" styleClass="value-card" text="\$69.420,00" fx:id="saldo">
+                              <Label layoutX="10.0" layoutY="27.0" prefHeight="17.0" prefWidth="190.0" styleClass="name-card" text="Pinco Pallino" fx:id="nameCard"/>
+                              <Label prefHeight="48.0" prefWidth="158.0" styleClass="value-card" text="0.0 €" fx:id="saldo">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>

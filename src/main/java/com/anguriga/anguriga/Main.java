@@ -1,6 +1,8 @@
 package com.anguriga.anguriga;
 
+import com.anguriga.anguriga.classes.BankAccount;
 import com.anguriga.anguriga.controllers.BorderlessModal;
+import com.anguriga.anguriga.controllers.MainController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -20,6 +22,8 @@ public class Main extends Application {
 
     public static void startATM(Stage stage, int x) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("main-window.fxml"));
+        fxmlLoader.setClassLoader(Main.class.getClassLoader());
+        fxmlLoader.setController(new MainController(new BankAccount("Pinco", "Pallino", "00069420")));
         Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         stage.setTitle("Homepage");
         stage.setResizable(false);

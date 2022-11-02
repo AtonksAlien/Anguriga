@@ -1,22 +1,28 @@
 package com.anguriga.anguriga.controllers;
 
 import com.anguriga.anguriga.Main;
+import com.anguriga.anguriga.classes.BankAccount;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class MainController {
     //https://stackoverflow.com/questions/34785417/javafx-fxml-controller-constructor-vs-initialize-method
-    @FXML
-    protected Label saldo;
+    private BankAccount conto;
 
     @FXML
-    protected void newATM(Event e) {
+    protected Label saldo;
+    @FXML
+    protected Label cardNumber;
+    @FXML
+    protected Label nameCard;
+
+    @FXML
+    protected void newATM() {
         try{
             Main.startATM(new Stage(), 0);
         }catch (IOException ex){
@@ -24,6 +30,14 @@ public class MainController {
             System.out.println(ex.getMessage());
         }
     }
+
+    @FXML
+    public void initialize() {
+        saldo.setText(conto.getSaldo() + " €");
+        cardNumber.setText(conto.getCardNumber());
+        nameCard.setText(conto.getNome() + " " + conto.getCognome());
+    }
+
     @FXML
     protected void versamento(Event e) {
         Stage currentStage = (Stage)((Node) e.getSource()).getScene().getWindow();
@@ -41,4 +55,12 @@ public class MainController {
 
     }
 
+    public MainController(BankAccount conto){
+        if(conto != null) {
+            this.conto = conto;
+        }else {
+            System.out.println("Conto Bancario non specificato");
+            System.exit(0);
+        }
+    }
 }
