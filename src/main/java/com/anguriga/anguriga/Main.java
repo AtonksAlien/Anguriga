@@ -14,6 +14,7 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 
 public class Main extends Application {
+    private static final BankAccount conto = new BankAccount("Pinco", "Pallino", "00069420");
     @Override
     public void start(Stage stage) throws IOException {
         startATM(stage, 250);
@@ -23,7 +24,7 @@ public class Main extends Application {
     public static void startATM(Stage stage, int x) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("main-window.fxml"));
         fxmlLoader.setClassLoader(Main.class.getClassLoader());
-        fxmlLoader.setController(new MainController(new BankAccount("Pinco", "Pallino", "00069420")));
+        fxmlLoader.setController(new MainController(conto));
         Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         stage.setTitle("Homepage");
         stage.setResizable(false);
