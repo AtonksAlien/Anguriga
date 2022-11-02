@@ -4,6 +4,7 @@ public class BankAccount extends User {
     private double saldo;
     private String cardNumber;
     public final static double MAX_DEBITO = 300;
+    private boolean empty = true;
 
     public BankAccount(String nome, String cognome, String cardNumber, double saldo) {
         super(nome, cognome);
@@ -29,11 +30,11 @@ public class BankAccount extends User {
         }
     }
 
-    public synchronized double getSaldo() {
+    private double getSaldo() {
         return saldo;
     }
 
-    public synchronized void setSaldo(double saldo) {
+    private void setSaldo(double saldo) {
         if(saldo >= -MAX_DEBITO){
             this.saldo = saldo;
         }else{
@@ -42,5 +43,55 @@ public class BankAccount extends User {
         }
     }
 
+    public synchronized void deposito(double importo) {
+        while(!empty) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                System.out.println("Qualcosa è andato storto nel depositare " + importo + "€");
+                e.printStackTrace();
+            }
+        }
+
+        if(importo > 0) {
+            setSaldo(saldo + importo);
+            empty = false;
+            notifyAll();
+        }else {
+            System.out.println("Impossibile effettuare il versamento");
+        }
+    }
+
+    public synchronized void prelievo(double importo) {
+        while(!empty) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                System.out.println("Qualcosa è andato storto nel prelevare " + importo + "€");
+                e.printStackTrace();
+            }
+        }
+        if(importo > 0 && saldo-importo >= -MAX_DEBITO) {
+            setSaldo(saldo - importo);
+            empty = false;
+            notifyAll();
+        }else {
+            System.out.println("Impossibile effettuare il prelievo");
+        }
+    }
+
+    public synchronized double readSaldo(){
+        while(empty) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                System.out.println("Qualcosa è andato storto nel leggere il saldo");
+                e.printStackTrace();
+            }
+        }
+        empty = true;
+        notifyAll();
+        return getSaldo();
+    }
 
 }
