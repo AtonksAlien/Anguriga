@@ -6,8 +6,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.util.Arrays;
-
 public class PV_Controller implements BorderlessModal{
     private String[] testi;
 
@@ -36,11 +34,20 @@ public class PV_Controller implements BorderlessModal{
                 new String[]{"Prelievo", "Inserisci la somma da prelevare", "PRELEVA"},
         };
 
-        if(titolo.equalsIgnoreCase("versamento")) {
-            testi = dbTesti[0];
-        }else if(titolo.equalsIgnoreCase("prelievo")){
-            testi = dbTesti[1];
+        if(!titolo.isEmpty()){
+            if(titolo.equalsIgnoreCase("versamento")) {
+                testi = dbTesti[0];
+            }else if(titolo.equalsIgnoreCase("prelievo")){
+                testi = dbTesti[1];
+            }else{
+                System.out.println("Titolo finestra non valido");
+                System.exit(0);
+            }
+        }else{
+            System.out.println("Titolo finestra non specificato");
+            System.exit(0);
         }
+
     }
 
 }
