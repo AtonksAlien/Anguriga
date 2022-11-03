@@ -29,7 +29,7 @@ public class SaldoUpdater implements Runnable {
     }
 
     private void setImporto(double importo) {
-        if(importo > 0){ //TODO: Controllo conto in negativo??
+        if(importo > 0){
             if(tipo.equals("prelievo") && conto.readSaldo()-importo >= -BankAccount.MAX_DEBITO) {
                 this.importo = importo;
             }else if(tipo.equals("versamento")) {
@@ -45,9 +45,10 @@ public class SaldoUpdater implements Runnable {
 
     @Override
     public void run() {
+        System.out.println("Eseguo " + tipo + " di " + importo + "€"); //TODO: Debug
         if(tipo.equals("versamento")) {
             conto.deposito(importo);
-        }else {
+        } else {
             conto.prelievo(importo);
         }
     }
