@@ -4,7 +4,7 @@ public class BankAccount extends User {
     private double saldo;
     private String cardNumber;
     public final static double MAX_DEBITO = 300;
-    private boolean empty = true;
+    private boolean empty = false;
 
     public BankAccount(String nome, String cognome, String cardNumber, double saldo) {
         super(nome, cognome);
@@ -82,6 +82,7 @@ public class BankAccount extends User {
 
     public synchronized double readSaldo(){
         while(empty) {
+            System.out.println("Attendo modifiche sul saldo"); //TODO: Debug
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -89,6 +90,7 @@ public class BankAccount extends User {
                 e.printStackTrace();
             }
         }
+        System.out.println("Saldo letto: " + getSaldo()); //TODO: Debug
         empty = true;
         notifyAll();
         return getSaldo();
