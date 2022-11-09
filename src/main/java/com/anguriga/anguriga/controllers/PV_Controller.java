@@ -9,6 +9,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class PV_Controller implements BorderlessModal{
     private String[] testi;
     private String tipo;
@@ -20,6 +23,8 @@ public class PV_Controller implements BorderlessModal{
     protected TextField importo;
     @FXML
     protected Button button;
+    @FXML
+    protected Label errorLabel;
 
     @FXML
     public void closeWindow() {
@@ -66,11 +71,45 @@ public class PV_Controller implements BorderlessModal{
 
     @FXML
     protected void prelevaVersa(){
-        //TODO: Controlli input
-        double importo = 10;
-        Thread saldoUpdater = new Thread(new SaldoUpdater(conto, tipo, importo), "SaldoUpdater");
-        saldoUpdater.start();
+        double importo = 0;
+        try{
+            importo = Double.parseDouble(this.importo.getText());
+            if(importo <= 0){
+                setError("L'importo deve essere maggiore di 0");
+            }else{
+                if(importo > BankAccount.MAX_TRANSAZIONE){
+                    setError("Importo troppo elevato");
+                }else{
+                    Thread saldoUpdater = new Thread(new SaldoUpdater(conto, tipo, importo), "SaldoUpdater");
+                    saldoUpdater.start();
+                }
+            }
+        }catch (Exception e){
+            setError("Importo non valido");
+        }
     }
 
+    private void setError(String error){
+        errorLabel.setText(error);
+        button.setDisable(true);
+        button.setText("ERRORE");
+        button.setStyle("-fx-background-color: linear-gradient(to top right, #D22A2A, #A92620)");
+
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        button.setText(testi[2]);
+                        button.setDisable(false);
+                        button.setStyle("-fx-background-color: linear-gradient(to top right, #42D22A, #20A926);");
+                        errorLabel.setText("");
+                    }
+                });
+            }
+        }, 1500);
+    }
 }
 
