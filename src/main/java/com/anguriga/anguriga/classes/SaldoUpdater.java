@@ -45,7 +45,6 @@ public class SaldoUpdater implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("Eseguo " + tipo + " di " + importo + "€"); //TODO: Debug
         if(tipo.equals("versamento")) {
             conto.deposito(importo);
         } else {

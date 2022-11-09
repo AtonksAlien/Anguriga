@@ -1,10 +1,14 @@
 package com.anguriga.anguriga.classes;
 
+import com.anguriga.anguriga.Main;
+
 public class BankAccount extends User {
     private double saldo;
     private String cardNumber;
     public final static double MAX_DEBITO = 300;
+    public final static double MAX_TRANSAZIONE = 5000;
     private boolean empty = false;
+    private int readNum = 0;
 
     public BankAccount(String nome, String cognome, String cardNumber, double saldo) {
         super(nome, cognome);
@@ -82,7 +86,7 @@ public class BankAccount extends User {
 
     public synchronized double readSaldo(){
         while(empty) {
-            System.out.println("Attendo modifiche sul saldo"); //TODO: Debug
+            readNum = 0;
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -90,9 +94,12 @@ public class BankAccount extends User {
                 e.printStackTrace();
             }
         }
-        System.out.println("Saldo letto: " + getSaldo()); //TODO: Debug
-        empty = true;
-        notifyAll();
+
+        readNum++;
+        if(readNum == 2) { //TODO: Fisso a 2 atm
+            empty = true;
+            notifyAll();
+        }
         return getSaldo();
     }
 

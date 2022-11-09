@@ -34,7 +34,6 @@ public class SaldoReader implements Runnable {
         Platform.runLater(() -> {
             saldo.setText(importo + " €");
         });
-
     }
 
     @Override
