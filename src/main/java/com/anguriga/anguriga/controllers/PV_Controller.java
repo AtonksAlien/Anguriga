@@ -80,8 +80,12 @@ public class PV_Controller implements BorderlessModal{
                 if(importo > BankAccount.MAX_TRANSAZIONE){
                     setError("Importo troppo elevato");
                 }else{
-                    Thread saldoUpdater = new Thread(new SaldoUpdater(conto, tipo, importo), "SaldoUpdater");
-                    saldoUpdater.start();
+                    if(tipo.equalsIgnoreCase("prelievo") && conto.readSaldo(true)-importo < -BankAccount.MAX_DEBITO){
+                        setError("Non hai abbastanza denaro");
+                    }else{
+                        Thread saldoUpdater = new Thread(new SaldoUpdater(conto, tipo, importo), "SaldoUpdater");
+                        saldoUpdater.start();
+                    }
                 }
             }
         }catch (Exception e){
