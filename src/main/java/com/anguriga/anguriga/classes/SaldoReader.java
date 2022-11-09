@@ -39,7 +39,7 @@ public class SaldoReader implements Runnable {
     @Override
     public void run() {
         while(true) {
-            updateSaldoLabel(conto.readSaldo());
+            updateSaldoLabel(conto.readSaldo(false));
         }
     }
 }

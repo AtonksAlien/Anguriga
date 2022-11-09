@@ -30,7 +30,7 @@ public class SaldoUpdater implements Runnable {
 
     private void setImporto(double importo) {
         if(importo > 0){
-            if(tipo.equals("prelievo") && conto.readSaldo()-importo >= -BankAccount.MAX_DEBITO) {
+            if(tipo.equals("prelievo") && conto.readSaldo(true)-importo >= -BankAccount.MAX_DEBITO) {
                 this.importo = importo;
             }else if(tipo.equals("versamento")) {
                 this.importo = importo;

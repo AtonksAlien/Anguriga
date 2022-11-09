@@ -1,7 +1,5 @@
 package com.anguriga.anguriga.classes;
 
-import com.anguriga.anguriga.Main;
-
 public class BankAccount extends User {
     private double saldo;
     private String cardNumber;
@@ -84,7 +82,11 @@ public class BankAccount extends User {
         }
     }
 
-    public synchronized double readSaldo(){
+    public synchronized double readSaldo(boolean ignore) {
+        if(ignore) {
+            return getSaldo();
+        }
+
         while(empty) {
             readNum = 0;
             try {
