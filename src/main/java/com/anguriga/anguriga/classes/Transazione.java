@@ -208,33 +208,20 @@ public class Transazione {
     }
 
     public String convertMonth(int month){
-        switch (month){
-            case 0:
-                return "Gennaio";
-            case 1:
-                return "Febbraio";
-            case 2:
-                return "Marzo";
-            case 3:
-                return "Aprile";
-            case 4:
-                return "Maggio";
-            case 5:
-                return "Giugno";
-            case 6:
-                return "Luglio";
-            case 7:
-                return "Agosto";
-            case 8:
-                return "Settembre";
-            case 9:
-                return "Ottobre";
-            case 10:
-                return "Novembre";
-            case 11:
-                return "Dicembre";
-            default:
-                return "Mese non valido";
-        }
+        return switch (month) {
+            case 0 -> "Gennaio";
+            case 1 -> "Febbraio";
+            case 2 -> "Marzo";
+            case 3 -> "Aprile";
+            case 4 -> "Maggio";
+            case 5 -> "Giugno";
+            case 6 -> "Luglio";
+            case 7 -> "Agosto";
+            case 8 -> "Settembre";
+            case 9 -> "Ottobre";
+            case 10 -> "Novembre";
+            case 11 -> "Dicembre";
+            default -> "Mese non valido";
+        };
     }
 }
