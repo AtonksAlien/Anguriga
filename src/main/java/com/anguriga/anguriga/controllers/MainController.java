@@ -36,7 +36,7 @@ public class MainController {
     public void initialize() {
         Thread reader = new Thread(new SaldoReader(conto, saldo), "SaldoReader");
         reader.start();
-
+        saldo.setText(conto.readSaldo(true) + " €");
         cardNumber.setText(conto.getCardNumber());
         nameCard.setText(conto.getNome() + " " + conto.getCognome());
     }
