@@ -49,3 +49,10 @@
     -fx-font-size: 23px;
     -fx-text-fill: "#fff";
 }
+
+.error{
+    -fx-font-family: "Arial", "sans-serif";
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: linear-gradient(to top right, #D22A2A, #A92620);
+}
