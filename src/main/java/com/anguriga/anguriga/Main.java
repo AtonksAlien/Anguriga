@@ -15,6 +15,8 @@ import java.io.IOException;
 
 public class Main extends Application {
     private static final BankAccount conto = new BankAccount("Pinco", "Pallino", "00069420");
+    public static int atmOpened = 0;
+
     @Override
     public void start(Stage stage) throws IOException {
         startATM(stage, 250);
@@ -33,6 +35,7 @@ public class Main extends Application {
         stage.setX(x);
         stage.setY(150);
         stage.show();
+        atmOpened++;
     }
 
     public static void startModal(Stage currentStage, String type, int[] size, int[] padding, boolean draggable, BorderlessModal controller) {
