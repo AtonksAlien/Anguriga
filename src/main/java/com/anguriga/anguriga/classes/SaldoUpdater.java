@@ -62,10 +62,14 @@ public class SaldoUpdater implements Runnable {
     public void run() {
         if(tipo.equals("versamento")) {
             conto.deposito(importo);
-            new Transazione(importo, "Versamento", new GregorianCalendar()).addTransazione(transazioni);
+            Transazione t = new Transazione(importo, "Versamento", new GregorianCalendar());
+            conto.addTransazione(t);
+            t.addTransazione(transazioni);
         } else {
             conto.prelievo(importo);
-            new Transazione(importo, "Prelievo", new GregorianCalendar()).addTransazione(transazioni);
+            Transazione t = new Transazione(importo, "Prelievo", new GregorianCalendar());
+            conto.addTransazione(t);
+            t.addTransazione(transazioni);
         }
     }
 }

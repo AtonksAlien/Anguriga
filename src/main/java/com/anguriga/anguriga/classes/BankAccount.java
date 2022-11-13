@@ -1,5 +1,7 @@
 package com.anguriga.anguriga.classes;
 
+import java.util.ArrayList;
+
 public class BankAccount extends User {
     private double saldo;
     private String cardNumber;
@@ -7,6 +9,14 @@ public class BankAccount extends User {
     public final static double MAX_TRANSAZIONE = 5000;
     private boolean empty = false;
     private int readNum = 0;
+    private ArrayList<Transazione> transazioni = new ArrayList<>();
+
+    public BankAccount(String nome, String cognome, String cardNumber, double saldo, ArrayList<Transazione> transazioni) {
+        super(nome, cognome);
+        setCardNumber(cardNumber);
+        setSaldo(saldo);
+        setTransazioni(transazioni);
+    }
 
     public BankAccount(String nome, String cognome, String cardNumber, double saldo) {
         super(nome, cognome);
@@ -105,4 +115,18 @@ public class BankAccount extends User {
         return getSaldo();
     }
 
+    public void addTransazione(Transazione t){
+        if(t != null){
+            transazioni.add(t);
+        }else{
+            System.out.println("Transazione non valida. Non processata");
+        }
+    }
+    public void setTransazioni(ArrayList<Transazione> t){
+        if(t != null){
+            transazioni = t;
+        }else{
+            System.out.println("Transazioni non valide. Non processate");
+        }
+    }
 }
