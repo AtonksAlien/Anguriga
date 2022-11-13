@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
 import java.util.Timer;
@@ -16,6 +17,7 @@ public class PV_Controller implements BorderlessModal{
     private String[] testi;
     private String tipo;
     private BankAccount conto;
+    private FlowPane transazioni;
 
     @FXML
     protected Label titolo;
@@ -39,7 +41,7 @@ public class PV_Controller implements BorderlessModal{
         Platform.runLater( () -> button.requestFocus() );
     }
 
-    public PV_Controller(BankAccount conto, String titolo){
+    public PV_Controller(BankAccount conto, String titolo, FlowPane transazioni) {
         String[][] dbTesti = new String[][]{
                 new String[]{"Versamento", "Inserisci la somma da versare", "VERSA"},
                 new String[]{"Prelievo", "Inserisci la somma da prelevare", "PRELEVA"},
@@ -67,6 +69,13 @@ public class PV_Controller implements BorderlessModal{
             System.out.println("Conto non specificato");
             System.exit(0);
         }
+
+        if(transazioni == null){
+            System.out.println("Contenitore transazioni non specificate");
+            System.exit(0);
+        }else{
+            this.transazioni = transazioni;
+       }
     }
 
     @FXML
@@ -83,7 +92,7 @@ public class PV_Controller implements BorderlessModal{
                     if(tipo.equalsIgnoreCase("prelievo") && conto.readSaldo(true)-importo < -BankAccount.MAX_DEBITO){
                         setError("Non hai abbastanza denaro");
                     }else{
-                        Thread saldoUpdater = new Thread(new SaldoUpdater(conto, tipo, importo), "SaldoUpdater");
+                        Thread saldoUpdater = new Thread(new SaldoUpdater(conto, tipo, importo, transazioni), "SaldoUpdater");
                         saldoUpdater.start();
                     }
                 }

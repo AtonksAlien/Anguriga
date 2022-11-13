@@ -7,6 +7,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -15,12 +16,10 @@ public class MainController {
     //https://stackoverflow.com/questions/34785417/javafx-fxml-controller-constructor-vs-initialize-method
     private BankAccount conto;
 
-    @FXML
-    protected Label saldo;
-    @FXML
-    protected Label cardNumber;
-    @FXML
-    protected Label nameCard;
+    @FXML protected Label saldo;
+    @FXML protected Label cardNumber;
+    @FXML protected Label nameCard;
+    @FXML protected FlowPane transazioni;
 
     @FXML
     protected void newATM() {
@@ -44,12 +43,12 @@ public class MainController {
     @FXML
     protected void versamento(Event e) {
         Stage currentStage = (Stage)((Node) e.getSource()).getScene().getWindow();
-        Main.startModal(currentStage, "versamento", new int[]{640, 320}, new int[]{0,0}, true, new PV_Controller(conto, "versamento"));
+        Main.startModal(currentStage, "versamento", new int[]{640, 320}, new int[]{0,0}, true, new PV_Controller(conto, "versamento", transazioni));
     }
     @FXML
     protected void prelievo(Event e) {
         Stage currentStage = (Stage)((Node) e.getSource()).getScene().getWindow();
-        Main.startModal(currentStage, "prelievo", new int[]{640, 320}, new int[]{0,0}, true, new PV_Controller(conto, "prelievo"));
+        Main.startModal(currentStage, "prelievo", new int[]{640, 320}, new int[]{0,0}, true, new PV_Controller(conto, "prelievo", transazioni));
     }
     @FXML
     protected void bollettini(Event e) {
