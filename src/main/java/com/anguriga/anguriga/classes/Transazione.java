@@ -3,6 +3,7 @@ package com.anguriga.anguriga.classes;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -228,7 +229,10 @@ public class Transazione {
     public void addTransazione(FlowPane flowPane){
         if(flowPane != null){
             Platform.runLater(() -> {
-                flowPane.getChildren().add(generateCard());
+                flowPane.getChildren().add(0, generateCard());
+                if(flowPane.getChildren().size() > 5){
+                    flowPane.getChildren().remove(5);
+                }
             });
         }else{
             System.out.println("FlowPane non valido");
