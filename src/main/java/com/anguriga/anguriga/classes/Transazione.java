@@ -1,12 +1,12 @@
 package com.anguriga.anguriga.classes;
 
+import javafx.application.Platform;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.text.TextAlignment;
 
 import java.util.GregorianCalendar;
@@ -22,7 +22,7 @@ public class Transazione {
     private String color;
 
     public static final Set<String> icons = Set.of("cuore", "dollaro", "carta");
-    public static final List<String> colors = List.of("FFB21E", "37B7FF", "4255FF"); //Giallo - Azzurro - Blu
+    public static final List<String> colors = List.of("#FFB21E", "#37B7FF", "#4255FF"); //Giallo - Azzurro - Blu
 
     public Transazione(double importo, String tipo, GregorianCalendar data, String title, String icon, String color) {
         setImporto(importo);
@@ -70,7 +70,7 @@ public class Transazione {
 
     public void setData(GregorianCalendar data) {
         GregorianCalendar now = new GregorianCalendar();
-        if(data.getTimeInMillis() >= now.getTimeInMillis()){
+        if(data.getTimeInMillis() < now.getTimeInMillis()+10){
             data.setLenient(false);
             try{
                 data.getTimeInMillis();
@@ -108,7 +108,7 @@ public class Transazione {
         if(color.charAt(0) == '#') {
             color = color.substring(1);
             if(color.length() == 3 || color.length() == 6){
-                if(colors.contains(color)) {
+                if(colors.contains("#"+color)) {
                     this.color = "#"+color;
                 }else{
                     System.out.println("Colore non esistente");
@@ -151,32 +151,32 @@ public class Transazione {
     public HBox generateCard(){
         //ICONA
         ImageView icon = new ImageView(new Image("file:src/main/resources/"+this.icon));
-        icon.setFitHeight(40);
-        icon.setFitWidth(40);
+        icon.setFitHeight(35);
+        icon.setFitWidth(45);
 
         //PANE per icona
-        Pane pane = new Pane();
-        pane.setPrefSize(54, 84);
+        Pane pane = new StackPane();
+        pane.setPrefWidth(80);
         pane.setStyle("-fx-background-color: "+this.color+";");
         pane.getStyleClass().add("notifica-img");
-        pane.setPadding(new Insets(15));
+        pane.setPadding(new Insets(0, 15, 0, 15));
         pane.getChildren().add(icon);
+        StackPane.setAlignment(icon, Pos.CENTER);
 
         //VBOX testi
         VBox vBox = new VBox();
-        vBox.setPrefSize(39, 192); //h - w
-        vBox.setPadding(new Insets(0, 0, 0, 10));
+        vBox.setPrefSize(192, 39); //w - h
+        vBox.setPadding(new Insets(3, 0, 0, 10));
 
         //Titolo
         Label title = new Label(this.title);
         title.getStyleClass().add("notifica-title");
-        title.setPrefSize(34, 150); //h - w
         vBox.getChildren().add(title);
 
         //Data
         Label data = new Label(this.data.get(GregorianCalendar.DAY_OF_MONTH)+" "+convertMonth(this.data.get(GregorianCalendar.MONTH))+" "+this.data.get(GregorianCalendar.YEAR));
         data.getStyleClass().add("notifica-data");
-        data.setPrefSize(26, 150); //h - w
+        data.setPadding(new Insets(3, 0, 0, 0));
         vBox.getChildren().add(data);
 
         //IMPORTO
@@ -190,18 +190,18 @@ public class Transazione {
         importo.setTextAlignment(TextAlignment.CENTER);
         importo.getStyleClass().add("notifica-price");
         if(this.tipo.equalsIgnoreCase("versamento")){
-            importo.getStyleClass().add("bg-yellow");
+            importo.getStyleClass().add("bg-green");
         }else if(this.tipo.equalsIgnoreCase("prelievo")){
             importo.getStyleClass().add("bg-red");
         }else{
             importo.getStyleClass().add("bg-yellow");
         }
-        importo.setPrefSize(66, 106); //h - w
-
+        importo.setPadding(new Insets(0, 10, 0, 10));
+        importo.setPrefHeight(60);
 
         HBox card = new HBox(pane, vBox, importo);
         card.alignmentProperty().set(javafx.geometry.Pos.CENTER_LEFT);
-        card.setPrefHeight(55);
+        card.setPrefHeight(60);
         card.getStyleClass().add("notifica");
 
         return card;
@@ -223,5 +223,17 @@ public class Transazione {
             case 11 -> "Dicembre";
             default -> "Mese non valido";
         };
+    }
+
+    public void addTransazione(FlowPane flowPane){
+        if(flowPane != null){
+            Platform.runLater(() -> {
+                flowPane.getChildren().add(generateCard());
+            });
+        }else{
+            System.out.println("FlowPane non valido");
+            System.exit(0);
+        }
+
     }
 }
